@@ -1,0 +1,36 @@
+﻿@model Player
+
+@{
+    ViewData["Title"] = Model is not null ? "Modify Player" : "Create New Player";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+
+    <form class="card" asp-action="Create" asp-controller="Players" method="post">
+        <div class="form-group">
+            @if (Model is not null)
+            {
+                <label>Edit Player</label>
+                <input asp-for="Name" required type="text" class="form-control" value=@Model.Name>
+                <input asp-for="Surname" required type="text" class="form-control" value=@Model.Surname>
+                <input asp-for="Nickname" required type="text" class="form-control" value=@Model.Nickname>
+                <input asp-for="Nationality" required type="text" class="form-control" value=@Model.Nationality>
+                <input asp-for="Category" required type="text" class="form-control" value=@Model.Category>
+                <input asp-for="BirthDay" required type="date" class="form-control" value=@Model.BirthDay.Date.ToString("yyyy-MM-dd")>
+                <input asp-for="Id" type="hidden" value=@Model.Id />
+            }
+            else
+            {
+                <label>New Player</label>
+                <input asp-for="Name" required type="text" class="form-control" placeholder = "Name">
+                <input asp-for="Surname" required type="text" class="form-control" placeholder = "Surname">
+                <input asp-for="Nickname" required type="text" class="form-control" placeholder = "Nickname">
+                <input asp-for="Nationality" required type="text" class="form-control" placeholder = "Nationality">
+                <input asp-for="Category" required type="text" class="form-control" placeholder = "Category">
+                <input asp-for="BirthDay" required type="date" class="form-control">
+            }
+        </div>
+        <button type="submit" class="btn btn-sm btn-outline-primary">Create</button>
+    </form>
+</div>

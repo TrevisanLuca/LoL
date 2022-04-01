@@ -11,17 +11,18 @@
         <div class="form-group">
             @if (Model is not null)
             {
-                <label for="body">Edit Legend</label><input asp-for="Name" type="text" class="form-control" value=@Model.Name>
-                <input asp-for="Category" type="text" class="form-control" value=@Model.Category>
-                <input asp-for="Bio" type="text" class="form-control" value=@Model.Bio>
+                <label>Edit Legend</label>
+                <input asp-for="Name" required type="text" class="form-control" value=@Model.Name>
+                <input asp-for="Category" required type="text" class="form-control" value=@Model.Category>
+                <input asp-for="Bio" required type="text" class="form-control" value=@Model.Bio>
                 <input asp-for="Id" type="hidden" value=@Model.Id />
             }
             else
             {
-                <label for="body">New Legend</label>
-                <input asp-for="Name" type="text" class="form-control" placeholder="Name">
-                <input asp-for="Category" type="text" class="form-control" placeholder="Category">
-                <input asp-for="Bio" type="text" class="form-control" placeholder="Bio">
+                <label>New Legend</label>
+                <input asp-for="Name" required type="text" class="form-control" placeholder="Name">
+                <input asp-for="Category" required type="text" class="form-control" placeholder="Category">
+                <input asp-for="Bio" required type="text" class="form-control" placeholder="Bio">
             }
         </div>
         <button type="submit" class="btn btn-sm btn-outline-primary">Create</button>

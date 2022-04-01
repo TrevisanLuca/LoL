@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Player>
+
+@{
+    ViewData["Legend"] = "List of Player";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Player"]</h1>
+
+    <ul class="list-group list-group-flush align-items-center">
+        @foreach (var player in Model)
+        {
+            <li class="list-group-item">
+                <div class="card">
+                    <div class="d-flex flex-column card-body">
+                        <h5 class="card-title">@player.Nickname</h5>
+                        <h6 class="card-title">@player.Name</h6>
+                        <h6 class="card-title">@player.Surname</h6>
+                        @Html.ActionLink("View details", "Detail", new { id = player.Id }, new { @class = "btn btn-sm btn-outline-primary w-100" })
+                        <div class="d-flex flex-column align-items-end card-footer">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        }
+    </ul>
+    @Html.ActionLink("Create New Player", "Create", "Players", default, new { @class = "btn btn-sm btn-outline-primary w-25" })
+
+</div>

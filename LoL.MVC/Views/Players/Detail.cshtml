@@ -1,16 +1,19 @@
-﻿@model Legend
+﻿@model Player
 
 @{
-    ViewData["Title"] = "Legend details";
+    ViewData["Title"] = "Player details";
 }
 
 <div class="text-center">
     <h1 class="display-4">@ViewData["Title"]</h1>
     <div class="card">
         <div class="d-flex flex-column card-body">
-            <h5 class="card-title">@Model.Name</h5>
+            <h5 class="card-title">@Model.Nickname</h5>
             <h6 class="card-subtitle mb-2 text-muted">@Model.Category</h6>
-            <p class="card-text">@Model.Bio</p>
+            <h6 class="card-subtitle mb-2 text-muted">@Model.Surname</h6>
+            <h6 class="card-subtitle mb-2 text-muted">@Model.Name</h6>
+            <h6 class="card-subtitle mb-2 text-muted">@Model.Nationality</h6>
+            <h6 class="card-subtitle mb-2 text-muted">@Model.BirthDay.ToString("yyyy-MM-dd")</h6>
             @Html.ActionLink("Edit", "Create", new { id = Model.Id }, new { @class = "btn btn-sm btn-outline-primary w-100" })
             @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-sm btn-outline-danger w-100" })
         </div>

@@ -1,6 +1,6 @@
-﻿using LoL.MVC.Domain;
+﻿namespace LoL.MVC.Abstract;
 
-namespace LoL.MVC.Abstract;
+using Domain;
 
 public interface ILegendsGateway
 {

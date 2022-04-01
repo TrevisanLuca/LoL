@@ -21,5 +21,5 @@ public record Player
 )
 {
     [Key]
-    public int? Id { get; set; }
+    public int? Id { get; set; }    
 }
