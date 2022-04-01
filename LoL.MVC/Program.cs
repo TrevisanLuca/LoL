@@ -1,4 +1,6 @@
+using LoL.MVC.Abstract;
 using LoL.MVC.Data;
+using LoL.MVC.Gateways;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
-
+builder.Services.AddScoped<ILegendsGateway, LegendsGateway>();
 builder.Services.AddDbContext<LoLDbContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultDatabase")));
 

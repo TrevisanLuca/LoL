@@ -23,9 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
     <Folder Include="Dtos\" />
-    <Folder Include="Gateways\" />
   </ItemGroup>
 
 </Project>
