@@ -1,5 +1,29 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<Legend>
+
 @{
+    ViewData["Legend"] = "List of Legends";
 }
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Legend"]</h1>
+
+    <ul class="list-group list-group-flush align-items-center">
+        @foreach (var legend in Model)
+        {
+            <li class="list-group-item">
+                <div class="card">
+                    <div class="d-flex flex-column card-body">
+                        <h5 class="card-title">@legend.Name</h5>
+                        <h6 class="card-title">@legend.Category</h6>
+                        @Html.ActionLink("View details", "Detail", new { id = legend.Id }, new { @class = "btn btn-sm btn-outline-primary w-100" })
+                        <div class="d-flex flex-column align-items-end card-footer">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        }
+    </ul>
+    @Html.ActionLink("Create New Legend", "Create", "Legends", default, new { @class = "btn btn-sm btn-outline-primary w-25" })
+
+</div>

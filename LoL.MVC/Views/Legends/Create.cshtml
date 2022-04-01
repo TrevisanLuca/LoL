@@ -1,5 +1,23 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Legend
+
 @{
+    ViewData["Title"] = "Create New Legend";
 }
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+
+    <form class="card" asp-action="Create" asp-controller="Legends" method="post">
+        <div class="form-group">
+            <label for="body">New Legend</label>
+            <input asp-for="Name" type="text" class="form-control" placeholder="Name">
+            <input asp-for="Category" type="text" class="form-control" placeholder="Category">
+            <input asp-for="Bio" type="text" class="form-control" placeholder="Bio">
+            @if (Model is not null)
+            {
+                <input asp-for="@Model.Id" type="hidden" value="@Model.Id" />
+            }
+        </div>
+        <button type="submit" class="btn btn-sm btn-outline-primary">Create</button>
+    </form>
+</div>
