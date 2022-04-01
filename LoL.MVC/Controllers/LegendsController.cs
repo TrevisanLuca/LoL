@@ -30,7 +30,10 @@ public class LegendsController : Controller
     {
         if (!ModelState.IsValid) return View();
 
-        await _legendsGateway.Create(legend);
+        if (legend.Id is null)
+        { await _legendsGateway.Create(legend); }
+        else
+        { await _legendsGateway.Update(legend); }
 
         return RedirectToAction("Index");
     }

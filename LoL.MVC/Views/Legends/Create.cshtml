@@ -1,7 +1,7 @@
 ﻿@model Legend
 
 @{
-    ViewData["Title"] = "Create New Legend";
+    ViewData["Title"] = Model is not null ? "Modify Legend" : "Create New Legend";
 }
 
 <div class="text-center">
@@ -9,13 +9,19 @@
 
     <form class="card" asp-action="Create" asp-controller="Legends" method="post">
         <div class="form-group">
-            <label for="body">New Legend</label>
-            <input asp-for="Name" type="text" class="form-control" placeholder="Name">
-            <input asp-for="Category" type="text" class="form-control" placeholder="Category">
-            <input asp-for="Bio" type="text" class="form-control" placeholder="Bio">
             @if (Model is not null)
             {
-                <input asp-for="@Model.Id" type="hidden" value="@Model.Id" />
+                <label for="body">Edit Legend</label><input asp-for="Name" type="text" class="form-control" value=@Model.Name>
+                <input asp-for="Category" type="text" class="form-control" value=@Model.Category>
+                <input asp-for="Bio" type="text" class="form-control" value=@Model.Bio>
+                <input asp-for="Id" type="hidden" value=@Model.Id />
+            }
+            else
+            {
+                <label for="body">New Legend</label>
+                <input asp-for="Name" type="text" class="form-control" placeholder="Name">
+                <input asp-for="Category" type="text" class="form-control" placeholder="Category">
+                <input asp-for="Bio" type="text" class="form-control" placeholder="Bio">
             }
         </div>
         <button type="submit" class="btn btn-sm btn-outline-primary">Create</button>
