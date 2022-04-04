@@ -1,0 +1,107 @@
+﻿@model TeamAndPlayersViewModel
+
+@{
+    ViewData["Title"] = Model is not null ? "Modify Team" : "Create New Team";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+
+    <form class="card" asp-action="Create" asp-controller="Teams" method="post">
+        <div class="form-group">
+            @if (Model is not null)
+            {
+                <label>Edit Team</label>
+                <input asp-for="Team.Name" required type="text" class="form-control" value=@Model.Team.Name>
+                //Player 1
+                <select asp-for="Team.Player1Id" class="form-select">
+                    @foreach (var player in Model.Players)
+                {
+                       @* @{ var isSelected = player.Id == Model.Team.Player1Id ? "selected" : ""; }*@
+
+
+                        @if (player.Id == Model.Team.Player1Id)
+                        {
+                            <option value="@player.Id" selected>@player.Nickname</option>
+                        }
+                        else
+                        {
+                            <option value="@player.Id">@player.Nickname</option>
+                        }
+                    }
+                </select>
+                //Player 2
+                <select asp-for="Team.Player2Id" class="form-select">
+                    @foreach (var player in Model.Players)
+                    {
+                        @Html
+                        <option value="@player.Id">@player.Nickname</option>
+                    }
+                </select>
+                //Player 3
+                <select asp-for="Team.Player3Id" class="form-select">
+                    @foreach (var player in Model.Players)
+                    {
+                        <option value="@player.Id">@player.Nickname</option>
+                    }
+                </select>
+                //Player 4
+                <select asp-for="Team.Player4Id" class="form-select">
+                    @foreach (var player in Model.Players)
+                    {
+                        <option value="@player.Id">@player.Nickname</option>
+                    }
+                </select>
+                //Player 5
+                <select asp-for="Team.Player5Id" class="form-select">
+                    @foreach (var player in Model.Players)
+                    {
+                        <option value="@player.Id"> @player.Nickname </option>
+                    }
+                </select>
+                <input asp-for="Team.Id" type="hidden" value=@Model.Team.Id />
+            }
+            else
+            {
+                <label>New Team</label>
+                <input asp-for="Team.Name" required type="text" class="form-control" placeholder="Name">
+                //Player 1
+                <select asp-for="Team.Player1Id" class="form-select">
+                    @foreach (var player in Model.Players)
+                    {
+                        <option value="@player.Id">@player.Nickname</option>
+                    }
+                </select>
+                //Player 2
+                <select asp-for="Team.Player2Id" class="form-select">
+                    @foreach (var player in Model.Players)
+                    {
+                        <option value="@player.Id">@player.Nickname</option>
+                    }
+                </select>
+                //Player 3
+                <select asp-for="Team.Player3Id" class="form-select">
+                    @foreach (var player in Model.Players)
+                    {
+                        <option value="@player.Id">@player.Nickname</option>
+                    }
+                </select>
+                //Player 4
+                <select asp-for="Team.Player4Id" class="form-select">
+                    @foreach (var player in Model.Players)
+                    {
+                        <option value="@player.Id">@player.Nickname</option>
+                    }
+                </select>
+                //Player 5
+                <select asp-for="Team.Player5Id" class="form-select">
+                    @foreach (var player in Model.Players)
+                    {
+                        <option value="@player.Id"> @player.Nickname </option>
+                    }
+                </select>
+            }
+        </div>
+        <button type="submit" class="btn btn-sm btn-outline-primary">Create</button>
+    </form>
+</div>

@@ -1,0 +1,21 @@
+﻿@model TeamAndPlayersViewModel
+
+@{
+    ViewData["Title"] = "Team details";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <div class="card">
+        <div class="d-flex flex-column card-body">
+            <h5 class="card-title">@Model.Team.Name</h5>
+            <h6 class="card-subtitle mb-2 text-muted">@Model.Team.Player1</h6>
+            <h6 class="card-subtitle mb-2 text-muted">@Model.Team.Player2</h6>
+            <h6 class="card-subtitle mb-2 text-muted">@Model.Team.Player3</h6>
+            <h6 class="card-subtitle mb-2 text-muted">@Model.Team.Player4</h6>
+            <h6 class="card-subtitle mb-2 text-muted">@Model.Team.Player5</h6>
+            @Html.ActionLink("Edit", "Create", new { id = Model.Team.Id }, new { @class = "btn btn-sm btn-outline-primary w-100" })
+            @Html.ActionLink("Delete", "Delete", new { id = Model.Team.Id }, new { @class = "btn btn-sm btn-outline-danger w-100" })
+        </div>
+    </div>
+</div>

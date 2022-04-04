@@ -2,11 +2,11 @@
 
 @{
     ViewData["Title"] = Model is not null ? "Modify Legend" : "Create New Legend";
+    ViewData["ButtonText"] = Model is not null ? "Update" : "Create";
 }
 
 <div class="text-center">
     <h1 class="display-4">@ViewData["Title"]</h1>
-
     <form class="card" asp-action="Create" asp-controller="Legends" method="post">
         <div class="form-group">
             @if (Model is not null)
@@ -25,6 +25,6 @@
                 <input asp-for="Bio" required type="text" class="form-control" placeholder="Bio">
             }
         </div>
-        <button type="submit" class="btn btn-sm btn-outline-primary">Create</button>
+        <button type="submit" class="btn btn-sm btn-outline-primary">@ViewData["ButtonText"]</button>
     </form>
 </div>

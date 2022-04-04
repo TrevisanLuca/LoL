@@ -11,6 +11,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ILegendsGateway, LegendsGateway>();
 builder.Services.AddScoped<IPlayersGateway, PlayersGateway>();
+builder.Services.AddScoped<ITeamsGateway, TeamsGateway>();
 builder.Services.AddDbContext<LoLDbContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultDatabase")));
 

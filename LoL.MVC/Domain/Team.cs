@@ -14,6 +14,14 @@ public record Team
     public int? Id { get; set; }
 
     #region Players
+    /*
+    //Player 1
+    public int Player1Id { get; init; }
+    public Ienumerable<Player> Player1 { get; init; } = null!;
+    //Player 2
+    public int Player2Id { get; init; }
+    public Ienumerable<Player> Player2 { get; init; } = null!;
+    */
     //Player 1
     public int Player1Id { get; init; }
     public Player Player1 { get; init; } = null!;
@@ -29,6 +37,7 @@ public record Team
     //Player 5
     public int Player5Id { get; init; }
     public Player Player5 { get; init; } = null!;
+    
     #endregion
 }
 
