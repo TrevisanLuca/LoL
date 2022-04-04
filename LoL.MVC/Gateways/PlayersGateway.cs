@@ -12,9 +12,10 @@ public class PlayersGateway : IPlayersGateway
         _context = context;
     }
     public async Task<IEnumerable<Player>> GetAll() => await _context.Player.ToListAsync();
-    public async Task<IEnumerable<Player>> GetFree()
+    public async Task<IEnumerable<Player>> GetFree(int? id)
     {
-       return await _context.Player.Include(p=>p.Team).ToListAsync();
+        if (id is null) return await _context.Player.Where(p => p.TeamId == null).ToListAsync();
+        else return await _context.Player.Where(p => p.TeamId == null || p.TeamId == id).ToListAsync();
     }
 
     public async Task<Player?> GetById(int id) => await _context.Player.SingleOrDefaultAsync(p => p.Id == id);

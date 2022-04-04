@@ -12,5 +12,5 @@ public interface IPlayersGateway
     Task<Player> Update(Player player);
 
     Task Delete(int id);
-    Task<IEnumerable<Player>> GetFree();
+    Task<IEnumerable<Player>> GetFree(int? id);
 }

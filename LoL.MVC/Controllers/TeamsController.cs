@@ -19,7 +19,7 @@ public class TeamsController : Controller
     public async Task<IActionResult> Index()
     {
         var teams = await _teamsGateway.GetAll();
-        var test = await _playersGateway.GetFree();
+        var test = await _playersGateway.GetFree(null);
         return View(teams);
     }
 
@@ -32,11 +32,11 @@ public class TeamsController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(TeamAndPlayersViewModel viewModel)
+    public async Task<IActionResult> Create(TeamCreationViewModel viewModel)
     {
         if (!ModelState.IsValid) return View();
 
-        if (viewModel.Team.Id is null)
+        if (viewModel.Team?.Id is null)
             await _teamsGateway.Create(viewModel.Team);
         else
             await _teamsGateway.Update(viewModel.Team);
@@ -48,8 +48,8 @@ public class TeamsController : Controller
     public async Task<IActionResult> Create(int? id)
     {
         var team = id is not null ? await _teamsGateway.GetById((int)id) : null;
-        var players = await _playersGateway.GetAll();
-        var viewModel = new TeamAndPlayersViewModel(team, players);
+        var players = await _playersGateway.GetFree(id);
+        var viewModel = new TeamCreationViewModel(team, players);
         return View(viewModel);
     }
 
