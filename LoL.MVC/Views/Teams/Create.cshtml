@@ -1,0 +1,37 @@
+﻿@model TeamCreationViewModel
+
+@{
+    ViewData["Title"] = Model.Team is not null ? "Modify Team" : "Create New Team"; 
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+
+    <form class="card" asp-action="Create" asp-controller="Teams" method="post">
+        <div class="form-group">
+            @if (Model.Team is not null)
+            {
+                <label>Edit Team</label>
+                <input asp-for="Team.Name" required type="text" class="form-control" value=@Model.Team.Name>
+                @Html.DropDownListFor(x => x.Team.Player1Id, Model.Players, "Select", new {required="required", @class = "form-control myInput"})
+                @Html.DropDownListFor(x => x.Team.Player2Id, Model.Players, "Select", new {required="required", @class = "form-control myInput"})
+                @Html.DropDownListFor(x => x.Team.Player3Id, Model.Players, "Select", new {required="required", @class = "form-control myInput"})
+                @Html.DropDownListFor(x => x.Team.Player4Id, Model.Players, "Select", new {required="required", @class = "form-control myInput"})
+                @Html.DropDownListFor(x => x.Team.Player5Id, Model.Players, "Select", new {required="required", @class = "form-control myInput"})
+                <input asp-for="Team.Id" type="hidden" value=@Model.Team.Id />
+            }
+            else
+            {
+                <label>New Team</label>
+                <input asp-for="Team.Name" required type="text" class="form-control" placeholder="Name">
+                <select required class="form-control myInput" asp-for="Team.Player1Id" asp-items="@Model.Players"></select>
+                <select required class="form-control myInput" asp-for="Team.Player2Id" asp-items="@Model.Players"></select>
+                <select required class="form-control myInput" asp-for="Team.Player3Id" asp-items="@Model.Players"></select>
+                <select required class="form-control myInput" asp-for="Team.Player4Id" asp-items="@Model.Players"></select>
+                <select required class="form-control myInput" asp-for="Team.Player5Id" asp-items="@Model.Players"></select>
+            }
+        </div>
+        <button id="myButton" type="submit" class="btn btn-sm btn-outline-primary">Create</button>
+    </form>
+</div> 
+@*<script src="~/Scripts/TeamCreation.js"></script>*@

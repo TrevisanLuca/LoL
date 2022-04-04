@@ -5,8 +5,8 @@
 }
 
 <div class="text-center">
+    @Html.ActionLink("Create New Legend", "Create", "Legends", default, new { @class = "btn btn-sm btn-outline-primary w-25" })
     <h1 class="display-4">@ViewData["Legend"]</h1>
-
     <ul class="list-group list-group-flush align-items-center">
         @foreach (var legend in Model)
         {
@@ -21,9 +21,6 @@
                     </div>
                 </div>
             </li>
-
         }
     </ul>
-    @Html.ActionLink("Create New Legend", "Create", "Legends", default, new { @class = "btn btn-sm btn-outline-primary w-25" })
-
 </div>

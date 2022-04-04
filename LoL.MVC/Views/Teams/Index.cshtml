@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Team>
+
+@{
+    ViewData["Title"] = "Teams";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <ul class="list-group list-group-flush align-items-center">
+        @foreach (var team in Model)
+        {
+            <li class="list-group-item">
+                <div class="card">
+                    <div class="d-flex flex-column card-body">
+                        <h5 class="card-title">@team.Name</h5>
+                        @Html.ActionLink("View details", "Detail", new { id = team.Id }, new { @class = "btn btn-sm btn-outline-primary w-100" })
+                        <div class="d-flex flex-column align-items-end card-footer">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+    @Html.ActionLink("Create New Team", "Create", "Teams", default, new { @class = "btn btn-sm btn-outline-primary w-100" })
+</div>
