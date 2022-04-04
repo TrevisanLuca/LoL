@@ -13,11 +13,11 @@
             {
                 <label>Edit Team</label>
                 <input asp-for="Team.Name" required type="text" class="form-control" value=@Model.Team.Name>
-                @Html.DropDownListFor(x => x.Team.Player1Id, Model.Players, "Select", new {required="required", @class = "form-control myInput"})
-                @Html.DropDownListFor(x => x.Team.Player2Id, Model.Players, "Select", new {required="required", @class = "form-control myInput"})
-                @Html.DropDownListFor(x => x.Team.Player3Id, Model.Players, "Select", new {required="required", @class = "form-control myInput"})
-                @Html.DropDownListFor(x => x.Team.Player4Id, Model.Players, "Select", new {required="required", @class = "form-control myInput"})
-                @Html.DropDownListFor(x => x.Team.Player5Id, Model.Players, "Select", new {required="required", @class = "form-control myInput"})
+                @Html.DropDownListFor(x => x.Team.Player1Id, Model.Players, null, new {required="required", @class = "form-control myInput"})
+                @Html.DropDownListFor(x => x.Team.Player2Id, Model.Players, null, new {required="required", @class = "form-control myInput"})
+                @Html.DropDownListFor(x => x.Team.Player3Id, Model.Players, null, new {required="required", @class = "form-control myInput"})
+                @Html.DropDownListFor(x => x.Team.Player4Id, Model.Players, null, new {required="required", @class = "form-control myInput"})
+                @Html.DropDownListFor(x => x.Team.Player5Id, Model.Players, null, new {required="required", @class = "form-control myInput"})
                 <input asp-for="Team.Id" type="hidden" value=@Model.Team.Id />
             }
             else
@@ -34,4 +34,6 @@
         <button id="myButton" type="submit" class="btn btn-sm btn-outline-primary">Create</button>
     </form>
 </div> 
-@*<script src="~/Scripts/TeamCreation.js"></script>*@
+@section scripts {
+<script src="~/Scripts/TeamCreation.js" type="text/javascript"></script>
+}

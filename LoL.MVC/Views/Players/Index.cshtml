@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<Player>
 
 @{
-    ViewData["Legend"] = "List of Player";
+    ViewData["Title"] = "List of Player";
 }
 
 <div class="text-center">
-    <h1 class="display-4">@ViewData["Player"]</h1>
-
+    @Html.ActionLink("Create New Player", "Create", "Players", default, new { @class = "btn btn-sm btn-outline-primary w-25" })
+    <h1 class="display-4">@ViewData["Title"]</h1>
     <ul class="list-group list-group-flush align-items-center">
         @foreach (var player in Model)
         {
@@ -22,9 +22,6 @@
                     </div>
                 </div>
             </li>
-
         }
     </ul>
-    @Html.ActionLink("Create New Player", "Create", "Players", default, new { @class = "btn btn-sm btn-outline-primary w-25" })
-
 </div>

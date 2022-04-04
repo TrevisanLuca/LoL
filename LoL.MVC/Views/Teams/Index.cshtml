@@ -5,6 +5,7 @@
 }
 
 <div class="text-center">
+    @Html.ActionLink("Create New Team", "Create", "Teams", default, new { @class = "btn btn-sm btn-outline-primary w-100" })
     <h1 class="display-4">@ViewData["Title"]</h1>
     <ul class="list-group list-group-flush align-items-center">
         @foreach (var team in Model)
@@ -21,5 +22,4 @@
             </li>
         }
     </ul>
-    @Html.ActionLink("Create New Team", "Create", "Teams", default, new { @class = "btn btn-sm btn-outline-primary w-100" })
 </div>
