@@ -1,7 +1,7 @@
 ﻿@model TeamCreationViewModel
 
 @{
-    ViewData["Title"] = Model.Team is not null ? "Modify Team" : "Create New Team"; 
+    ViewData["Title"] = Model?.Team is not null ? "Modify Team" : "Create New Team"; 
 }
 
 <div class="text-center">
@@ -9,7 +9,7 @@
 
     <form class="card" asp-action="Create" asp-controller="Teams" method="post">
         <div class="form-group">
-            @if (Model.Team is not null)
+            @if (Model?.Team is not null)
             {
                 <label>Edit Team</label>
                 <input asp-for="Team.Name" required type="text" class="form-control" value=@Model.Team.Name>

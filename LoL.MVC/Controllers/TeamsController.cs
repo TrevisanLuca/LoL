@@ -34,7 +34,7 @@ public class TeamsController : Controller
     [HttpPost]
     public async Task<IActionResult> Create(TeamCreationViewModel viewModel)
     {
-        if (!ModelState.IsValid) return View();
+        if (ModelState.IsValid is false) return View();
 
         if (viewModel.Team?.Id is null)
             await _teamsGateway.Create(viewModel.Team);
